@@ -1,4 +1,4 @@
-# rails-postgres-dev-box
+# rails-dev-box
 
 ## Dependencies
 
