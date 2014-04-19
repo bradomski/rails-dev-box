@@ -15,8 +15,14 @@ After vagrant ssh
     $ init_server
     $ run_server
 
-This project assumes you have a rails project located in the same directory as the Vagrantfile
+This project assumes you have a rails project located in vagrant base directory.
 
+Optionally, a file called 'config.sh' located in the vagrant base directroy will be
+used by the provisioner to set certain variables. The following variables are
+currently available for configuration:
+
+* PROJECT default: 'rails'; used for the rails project folder and database user
+* RUBY\_VERSION default: '2.1.1'; a valid rbenv ruby-build ruby version to install
 
 ## Why not rails/rails-dev-box?
 

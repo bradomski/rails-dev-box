@@ -1,6 +1,14 @@
-PROJECT='rails'
-RUBY_VERSION='2.1.1'
 HOME=/home/vagrant
+
+default_variables () {
+  if [ -z "$PROJECT" ]; then
+    PROJECT='rails'
+  fi
+
+  if [ -z "$RUBY_VERSION" ]; then
+    RUBY_VERSION='2.1.1'
+  fi
+}
 
 install_postgres () {
   echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > \
@@ -75,6 +83,12 @@ run_server () {
 }
 EOF
 
+# Optionally evaluate the first argument to set variables
+if [ -n "$1" ]; then
+  eval "$1"
+fi
+
 rm $HOME/postinstall.sh
+default_variables
 install_postgres
 install_ruby
